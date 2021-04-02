@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    <h2 class="display-6">Tabla de Programadores</h2>
+</div>
+<a asp-action="Create" type="button" class="btn btn-primary">Nuevo</a>
+
+<div class="text-center">
+    <table class="table" style="width:100%">
+        <thead>
+            <tr>
+                <th class="text-center pull-right">Name</th>
+                <th class="text-center pull-right">Followers</th>
+                <th class="text-right pull-right">Acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.developers)
+            {
+                <tr>
+                    <td> @item.Name</td>
+                    <td> @item.Followers</td>
+                    <td class="text-right pull-right">
+                        <a asp-action="Edit" type="button" id="@item.Id" class="btn btn-primary btn-sm">Editar</a>
+                        <a asp-action="Delete" type="button" id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+  
+</script>
